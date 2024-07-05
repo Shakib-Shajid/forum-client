@@ -4,19 +4,30 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        signIn(email,password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+    }
+
+    const googleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
     return (
         <div>
@@ -26,13 +37,13 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="email" className="input input-bordered"  name="email" required/>
+                    <input type="email" placeholder="email" className="input input-bordered" name="email" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="password" placeholder="password" className="input input-bordered"  name="password" required/>
+                    <input type="password" placeholder="password" className="input input-bordered" name="password" required />
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
@@ -42,8 +53,8 @@ const Login = () => {
                 </div>
             </form>
             <p className="text-center mt-4">Dont have an account <Link to="/register" className="text-blue-600 font-bold">Register</Link></p>
-            <div className="btn  btn-success form-control md:w-3/4 lg:w-1/2 mx-auto mt-4 ">     
-                    <button className="flex">Login with Google</button>
+            <div className="btn  btn-success form-control md:w-3/4 lg:w-1/2 mx-auto mt-4 ">
+                <button className="flex" onClick={googleSignIn}>Login with Google</button>
             </div>
         </div>
     );
