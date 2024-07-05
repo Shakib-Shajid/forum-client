@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
@@ -11,11 +12,16 @@ const Register = () => {
         console.log(event);
         const form = event.target;
         const email = form.email.value;
+        const photo = form.photo.value;
         const password = form.password.value;
 
         createUser(email,password)
         .then(result=>{
             const user = result.user;
+            updateProfile(result.user, {
+                displayName: name,
+                photoURL: photo
+            })
             console.log(user);
         })
     }
@@ -33,13 +39,19 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="email" className="input input-bordered" required name="email" />
+                    <input type="email" placeholder="Email" className="input input-bordered" required name="email" />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Photo URL</span>
+                    </label>
+                    <input type="text" placeholder="PhotoURL" className="input input-bordered" required name="photo" />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="password" placeholder="password" className="input input-bordered" required name="password" />
+                    <input type="password" placeholder="Password" className="input input-bordered" required name="password" />
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Register</button>
