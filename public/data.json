@@ -1,0 +1,71 @@
+[
+    {
+        "id": 1,
+        "name": "Marie Kondo",
+        "position": "Tidying consultant, author",
+        "desc": "Developed the KonMari method, a popular approach to organizing and decluttering. Authored books like 'The Life-Changing Magic of Tidying Up' that sparked a global tidying trend.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Stephen Hawking",
+        "position": "Theoretical physicist, cosmologist, author",
+        "desc": "Renowned physicist who made significant contributions to our understanding of black holes and cosmology. Popularized science through his book 'A Brief History of Time.'",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Leonardo da Vinci",
+        "position": "Polymath: painter, sculptor, architect, musician, scientist, engineer, inventor, anatomist, geologist, cartographer, botanist, and writer",
+        "desc": "Renaissance polymath famous for his paintings, inventions, and anatomical drawings. Created iconic works like the Mona Lisa and The Last Supper.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Albert Einstein",
+        "position": "Theoretical physicist",
+        "desc": "Developed the theory of relativity, one of the two pillars of modern physics (alongside quantum mechanics). Famous for the mass–energy equivalence formula E = mc².",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Nelson Mandela",
+        "position": "Anti-apartheid revolutionary, political leader, philanthropist",
+        "desc": "Fought against racial segregation in South Africa. Became the country's first black head of state and promoted racial reconciliation. Nobel Peace Prize laureate.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 6,
+        "name": "William Shakespeare",
+        "position": "Playwright, poet, actor",
+        "desc": "Renowned English playwright, poet, and actor. Considered the greatest writer in the English language and the world's greatest dramatist. Wrote iconic plays like Hamlet, Romeo and Juliet, and Macbeth.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Oprah Winfrey",
+        "position": "Talk show host, actress, producer, philanthropist",
+        "desc": "Media proprietor, actress, producer, and philanthropist. Best known for her talk show The Oprah Winfrey Show, which was the highest-rated television program of its kind in history and was nationally syndicated for 25 years from 1986 to 2011."
+    },
+    {
+        "id": 8,
+        "name": "Plato",
+        "position": "Philosopher",
+        "desc": "Influential Greek philosopher known for his theory of Forms and student of Socrates. His writings laid the foundation of Western philosophy.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Malala Yousafzai",
+        "position": "Activist for female education",
+        "desc": "Youngest Nobel Prize laureate. Activist for female education who survived an assassination attempt by the Taliban. Advocate for girls' education globally.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Ludwig van Beethoven",
+        "position": "Composer",
+        "desc": "German composer widely regarded as one of the greatest composers in history. Overcame deafness to compose influential works like Symphony No. 5 and Für Elise.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+    }
+]

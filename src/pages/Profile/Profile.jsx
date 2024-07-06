@@ -6,7 +6,7 @@ const Profile = () => {
     const {user} = useContext(AuthContext);
     console.log(user);
     return (
-        <div className='flex gap-5 flex-col md:flex-row mt-5'>
+        <div className='flex gap-5 flex-col md:flex-row mt-5 justify-center'>
             <img src={user.photoURL} className="max-w-sm rounded-lg shadow-2xl" alt="" />
             <div className="bg-white overflow-hidden shadow rounded-lg border w-full md:w-1/3">
                 <div className="px-4 py-5 sm:px-6">
