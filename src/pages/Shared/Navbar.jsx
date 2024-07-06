@@ -11,7 +11,7 @@ const Navbar = () => {
         <>
             <li><Link to="/">Home</Link></li>
             {
-                user ? <li><Link to="/profile">Profile</Link></li> : ''
+                user && <li><Link to="/profile">Profile</Link></li> 
             }
         </>
     return (

@@ -1,8 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    // console.log(location);
+    const from = location.state || '/';
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
 
@@ -16,6 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, {replace:true})
             })
     }
 
@@ -23,6 +30,7 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
+                navigate(from, {replace:true})
             })
             .catch(error => {
                 console.log(error)

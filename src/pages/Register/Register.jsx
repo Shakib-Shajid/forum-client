@@ -11,16 +11,18 @@ const Register = () => {
         event.preventDefault();
         console.log(event);
         const form = event.target;
+        const name = form.name.value; 
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
+        console.log(name,email,photo, password);
 
         createUser(email,password)
         .then(result=>{
             const user = result.user;
-            updateProfile(result.user, {
+            updateProfile(user, {
                 displayName: name,
-                photoURL: photo
+                photoURL: photo,
             })
             console.log(user);
         })
