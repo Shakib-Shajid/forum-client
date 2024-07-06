@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Banner = ({ post }) => {
     const { name, position, desc, img } = post;
@@ -10,7 +11,7 @@ const Banner = ({ post }) => {
                     <p>{desc}</p>
                 </div>
             </div>
-            <p className="btn btn-neutral absolute top-0 right-0 text-white">Profile</p>
+            <Link to="/" className="absolute top-0 right-0 btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Go Profile</Link>
         </div>
     );
 };

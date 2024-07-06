@@ -45,7 +45,8 @@
         "id": 7,
         "name": "Oprah Winfrey",
         "position": "Talk show host, actress, producer, philanthropist",
-        "desc": "Media proprietor, actress, producer, and philanthropist. Best known for her talk show The Oprah Winfrey Show, which was the highest-rated television program of its kind in history and was nationally syndicated for 25 years from 1986 to 2011."
+        "desc": "Media proprietor, actress, producer, and philanthropist. Best known for her talk show The Oprah Winfrey Show, which was the highest-rated television program of its kind in history and was nationally syndicated for 25 years from 1986 to 2011.",
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
     },
     {
         "id": 8,
