@@ -10,8 +10,9 @@ const Navbar = () => {
     const navLinks =
         <>
             <li><Link to="/">Home</Link></li>
-            {/* <li><Link to="/">Item 2</Link></li>
-            <li><Link to="/">Item 3</Link></li> */}
+            {
+                user ? <li><Link to="/profile">Profile</Link></li> : ''
+            }
         </>
     return (
         <div className="navbar bg-base-100">
@@ -46,12 +47,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? 
+                    user ?
                         <div className='flex gap-3 items-center'>
                             <div className="w-10 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src={user.photoURL} className='rounded-full'/>
+                                    src={user.photoURL} className='rounded-full' />
                             </div>
                             <button onClick={logout} className='btn btn-neutral text-white'>Logout</button>
                         </div>
