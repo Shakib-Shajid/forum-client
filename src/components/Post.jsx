@@ -5,15 +5,14 @@ import { AuthContext } from '../providers/AuthProvider';
 const Post = () => {
     const { user} = useContext(AuthContext);
     return (
-        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center my-10 gap-5">
+        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center my-10 gap-5 p-5">
             <img src={user.photoURL} className="h-14 w-14 rounded-full border-2 border-blue-500 p-2 " alt="" />
             <div>
                 <div className=" w-full flex gap-5">
 
-                    {/* ................................................... */}
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
                     <button onClick={() => document.getElementById('my_modal_5').showModal()}>
-                        <input type="text" name="" id="" placeholder="what's in your mind" className="textarea textarea-bordered w-56 md:w-[600px]" />
+                        <input type="text" name="" id="" placeholder="what's in your mind" className="textarea textarea-info w-56 md:w-[600px]" />
                     </button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
@@ -34,7 +33,6 @@ const Post = () => {
                             </div>
                         </div>
                     </dialog>
-                    {/* ................................................... */}
 
                 </div>
             </div>

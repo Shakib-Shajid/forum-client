@@ -11,7 +11,7 @@ const Banner = ({ post }) => {
                     <p>{desc}</p>
                 </div>
             </div>
-            <Link to="/" className="absolute top-0 right-0 btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Go Profile</Link>
+            <Link to="/peopleprofile" className="absolute top-0 right-0 btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Go Profile</Link>
         </div>
     );
 };
