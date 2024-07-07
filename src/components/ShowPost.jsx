@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 const Banner = ({ post }) => {
+
     const { id, name, position, desc, img } = post;
     return (
-        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center">
+        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center  ">
             <img src={img} className="h-20 w-20 rounded-full border-2 border-blue-500 p-2 " alt="" />
             <div>
                 <div className="card-body">

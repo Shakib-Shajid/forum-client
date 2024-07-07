@@ -3,7 +3,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const Post = () => {
-    const { user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     return (
         <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center my-10 gap-5 p-5">
             <img src={user.photoURL} className="h-14 w-14 rounded-full border-2 border-blue-500 p-2 " alt="" />
@@ -24,7 +24,7 @@ const Post = () => {
                                 <img src={user.photoURL} className="h-10 w-10 rounded-full border-2 border-black p-2 " alt="" />
                                 <h3 className="font-bold text-lg">{user.displayName}</h3>
                             </div>
-                            {/* <input type="text" name="" id="" placeholder="what's in your mind" className="textarea textarea-bordered w-[600px]" /> */}
+
                             <textarea
                                 placeholder="What's in your mind"
                                 className="textarea textarea-bordered textarea-lg w-full "></textarea>

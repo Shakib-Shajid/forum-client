@@ -1,6 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const PeopleProfile = () => {
+
+    // .......................................
+
+const [user, setUser] = useState([]);
+
+const urlId = Number(window.location.pathname.split('/')[2]); // Extract ID from URL
+console.log(urlId);
+
+useEffect(()=>{
+fetch('../data.json')
+  .then(res => res.json())
+  .then(data => {
+    const foundUser = data.find(item => item.id === urlId);
+    setUser(foundUser);
+    console.log(foundUser);
+  });
+
+
+}, []);
+
+    // .......................................
+
 
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -9,24 +32,16 @@ const PeopleProfile = () => {
             .then(data => setPosts(data))
     }, [])
 
-// .......................................
-
-const [user, setUser] = useState([]);
-
-const urlId = Number(window.location.pathname.split('/')[2]); // Extract ID from URL
-
-useEffect(()=>{
-fetch('../data.json')
-  .then(res => res.json())
-  .then(data => {
-    const foundUser = data.find(item => item.id === urlId);
-    setUser(foundUser);
-
-  });
+    // .......................................
 
 
-}, []);
-// .......................................
+const { loading } = useContext(AuthContext)
+if (loading) {
+     return <div><span className="loading loading-ball loading-xs"></span>
+         <span className="loading loading-ball loading-sm"></span>
+         <span className="loading loading-ball loading-md"></span>
+         <span className="loading loading-ball loading-lg"></span></div>
+ }
 
 
 
@@ -71,7 +86,6 @@ fetch('../data.json')
                         <div key={post.id} className="border-b-8 border-r-8 my-5 w-full lg:w-2/3 shadow-lg p-4 ">
                             <h3 className="text-lg font-bold">{post.name}</h3>
                             <p >{post.desc}</p>
-                         
                         </div>)
                 }
             </div>

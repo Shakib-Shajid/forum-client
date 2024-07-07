@@ -1,18 +1,19 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShowPost from "../../components/ShowPost";
 import Post from "../../components/Post";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Home = () => {
 
-    const [posts, setPosts] = useState([]);
-    const { loading } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
 
-    useEffect(() => {
+    const [posts, setPosts] = useState([])
+    useEffect(()=>{
         fetch('./data.json')
-            .then(res => res.json())
-            .then(data => setPosts(data))
-    }, [])
+        .then(res=>res.json())
+        .then(data=>setPosts(data))
+    },[])
+    
     if (loading) {
         return <div><span className="loading loading-ball loading-xs"></span>
             <span className="loading loading-ball loading-sm"></span>
@@ -21,12 +22,13 @@ const Home = () => {
     }
     return (
         <div>
-            <Post />
+            {
+                user && <Post />
+            }
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
                     posts.map(post =>
                         <ShowPost key={post.id} post={post}
-
                         />)
                 }
             </div>
