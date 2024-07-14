@@ -7,27 +7,27 @@ const PeopleProfile = () => {
 
 const [user, setUser] = useState([]);
 
-const urlId = Number(window.location.pathname.split('/')[2]); // Extract ID from URL
-console.log(urlId);
+const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
+// console.log(urlId);
 
 useEffect(()=>{
-fetch('../data.json')
+fetch('http://localhost:5000/posts')
   .then(res => res.json())
   .then(data => {
-    const foundUser = data.find(item => item.id === urlId);
+    const foundUser = data.find(item => item._id === urlId);
     setUser(foundUser);
-    console.log(foundUser);
+    console.log(urlId);
   });
 
 
 }, []);
 
-    // .......................................
+    // ..........Show all data.................
 
 
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        fetch('../data.json')
+        fetch('http://localhost:5000/posts')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])
@@ -36,6 +36,7 @@ fetch('../data.json')
 
 
 const { loading } = useContext(AuthContext)
+
 if (loading) {
      return <div><span className="loading loading-ball loading-xs"></span>
          <span className="loading loading-ball loading-sm"></span>
