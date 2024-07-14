@@ -13,6 +13,8 @@ const Home = () => {
         .then(res=>res.json())
         .then(data=>setPosts(data))
     },[])
+
+    const [allPost, setAllPost]  = useState(posts);
     
     if (loading) {
         return <div><span className="loading loading-ball loading-xs"></span>
@@ -28,7 +30,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
                     posts.map(post =>
-                        <ShowPost key={post.id} post={post}
+                        <ShowPost key={post.id} post={post} allPost={allPost} setAllPost={setAllPost}
                         />)
                 }
             </div>

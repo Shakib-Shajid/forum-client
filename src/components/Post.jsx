@@ -9,8 +9,11 @@ const Post = () => {
     const handlePost = event => {
         event.preventDefault();
         const form = event.target;
-        const post = form.post.value;
-        const getData = { post }
+        const desc = form.desc.value;
+        const name = user.displayName;
+        const email = user.email;
+        const img = user.photoURL;
+        const getData = { desc, name, email, img }
         console.log(getData);
 
         fetch('http://localhost:5000/posts', {
@@ -55,7 +58,7 @@ const Post = () => {
                                 </div>
                                 <textarea
                                     placeholder="What's in your mind"
-                                    className="textarea textarea-bordered textarea-lg w-full " name="post"></textarea>
+                                    className="textarea textarea-bordered textarea-lg w-full " name="desc"></textarea>
                                 <div className="text-center modal-middle mt-2">
                                     <button className="btn btn-success w-full text-white">Post</button>
                                 </div>

@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import PrivateRoute from "../providers/PrivateRoute";
 import PeopleProfile from "../pages/PeopleProfile/PeopleProfile";
+import UpdatePost from "../components/UpdatePost";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         {
           path: '/peopleprofile/:id',
           element: <PrivateRoute><PeopleProfile /></PrivateRoute>,
+        },
+        {
+          path: '/updatePost/:id',
+          element: <UpdatePost />,
         }
       ]
     },
