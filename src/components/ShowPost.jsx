@@ -4,13 +4,14 @@ const Banner = ({ post }) => {
 
     const { _id, name, position, desc, img } = post;
 
+
     const handleDelete = _id => {
         fetch(`http://localhost:5000/posts/${_id}`, {
             method: "DELETE",
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.deletedCount > 0) {
                     alert("Delete Successfully");
                 }
@@ -26,7 +27,6 @@ const Banner = ({ post }) => {
                     <div className="flex gap-5">
                         <button onClick={() => handleDelete(_id)} className=" btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Delete Post</button>
                         <Link to={`/updatePost/${_id}`} className=" btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Update Post</Link>
-
                     </div>
                 </div>
             </div>

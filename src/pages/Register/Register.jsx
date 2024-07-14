@@ -9,13 +9,13 @@ const Register = () => {
 
     const handleRegister = event =>{
         event.preventDefault();
-        console.log(event);
+        // console.log(event);
         const form = event.target;
         const name = form.name.value; 
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log(name,email,photo, password);
+        // console.log(name,email,photo, password);
 
         createUser(email,password)
         .then(result=>{
@@ -24,7 +24,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photo,
             })
-            console.log(user);
+            // console.log(user);
         })
     }
     return (

@@ -1,11 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Post from '../../components/Post';
 
 const Profile = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user);
+    console.log(user.email);
+
+    const [myPost, setMyPost] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/posts')
+            .then(res => res.json())
+            .then(data => {
+                const ownData = data.filter(myData => myData.email === user.email)
+                setMyPost(ownData);
+            })
+    }, [])
+
+
     return (
         <div >
             <div className='flex gap-5 flex-col md:flex-row mt-5 justify-center'>
@@ -41,10 +54,25 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-2/3 mx-auto'>
+            <div className='w-full lg:w-2/3 mx-auto'>
                 <Post />
             </div>
+            <div className='w-2/3 mx-auto'>
+                <h3 className='text-3xl font-bold my-3'>Your All Post: {myPost.length}</h3>
+
+                    {
+                        myPost.map(post =>
+                            <div key={post.id}>
+                                <div className="card bg-base-100 w-full shadow-xl my-5">
+                                    <div className="card-body">
+                                        <p>{post.desc}</p>
+                                    </div>
+                                </div>
+                            </div>)
+                    }
+            </div>
         </div>
+
     );
 };
 

@@ -14,7 +14,7 @@ const Post = () => {
         const email = user.email;
         const img = user.photoURL;
         const getData = { desc, name, email, img }
-        console.log(getData);
+        // console.log(getData);
 
         fetch('http://localhost:5000/posts', {
             method: "POST",
@@ -25,7 +25,7 @@ const Post = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 alert("Added Successfully")
             }

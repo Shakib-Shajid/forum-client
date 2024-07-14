@@ -16,7 +16,7 @@ fetch('http://localhost:5000/posts')
   .then(data => {
     const foundUser = data.find(item => item._id === urlId);
     setUser(foundUser);
-    console.log(urlId);
+    // console.log(urlId);
   });
 
 

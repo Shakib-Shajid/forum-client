@@ -21,7 +21,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from, {replace:true})
             })
     }
@@ -29,11 +29,11 @@ const Login = () => {
     const googleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, {replace:true})
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
             })
 
     }

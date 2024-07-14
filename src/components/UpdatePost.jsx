@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 const UpdatePost = () => {
     const params = useParams();
-    console.log(params.id);
+    // console.log(params.id);
 
     const [post, setPost] = useState([]);
 
@@ -19,7 +19,7 @@ const UpdatePost = () => {
         const form = event.target;
         const desc = form.desc.value;
         const updateinfo = { desc }
-        console.log(updateinfo);
+        // console.log(updateinfo);
 
         fetch(`http://localhost:5000/posts/${params.id}`, {
             method: 'PUT',
@@ -30,7 +30,7 @@ const UpdatePost = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if(data.modifiedCount>0){
                 alert('Updated Successfully');
             }
