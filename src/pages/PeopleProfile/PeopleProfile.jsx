@@ -54,11 +54,42 @@ const PeopleProfile = () => {
             <span className="loading loading-ball loading-lg"></span></div>
     }
 
-    console.log(user.email);
 
+    // .................................................................................
+    const now = new Date();
+    const day = now.getDay();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    // console.log(`Today is day ${day} and the time is ${hours}:${minutes}`);
+    // console.log(day);
+
+    // .................................................................................
+    let options = {
+        timeZone: 'Asia/Dhaka',
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+    },
+        myDate = new Intl.DateTimeFormat([], options);
+
+    setInterval(() => {
+        console.log(myDate.format(new Date()));
+    }, 10000);
+
+
+
+
+
+
+
+
+    // .................................................................................
     return (
         <div className="flex gap-5 flex-col md:flex-row">
-            <div className=" bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg w-full lg:w-2/3">
+            <div className=" bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg w-full lg:w-1/3">
                 <div className="border-b px-4 pb-6">
                     <div className="text-center my-4">
                         <img className="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4"
@@ -91,18 +122,17 @@ const PeopleProfile = () => {
 
 
             <div className='w-2/3 mx-auto'>
-                <h3 className='text-3xl font-bold my-3'>Your All Post: {user.length}</h3>
-                <p>User Email: {user.email}</p>
-                <p>All posts email: {
+                <h3 className='text-3xl font-bold my-3'>{user.name} All Post: </h3>
+                {
 
                     allPost.map(post => <p key={post._id}>
                         {
                             post.email === user.email ? <p>
-                                <div className="card bg-base-100 w-full shadow-xl my-5">
+                                <div className="card bg-base-100 w-full shadow-xl my-5 border-l-4 border-indigo-500">
                                     <div className="card-body">
+                                        <p className="absolute top-0 right-0 btn-xs btn-neutral text-black my-2">Post Time: {post.time}</p>
+
                                         <p>{post.desc}</p>
-                                        <p>{post.email}</p>
-                                        <p>{user.email}</p>
                                     </div>
                                 </div>
                             </p> : ""
@@ -111,7 +141,7 @@ const PeopleProfile = () => {
 
 
 
-                }</p>
+                }
 
 
             </div>

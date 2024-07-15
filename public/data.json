@@ -5,7 +5,8 @@
         "email": "ab@gmail.com",
         "position": "Tidying consultant, author",
         "desc": "Developed the KonMari method, a popular approach to organizing and decluttering. Authored books like 'The Life-Changing Magic of Tidying Up' that sparked a global tidying trend.",
-        "img": "https://i.ibb.co/fHgjLjc/user1.png"
+        "img": "https://i.ibb.co/fHgjLjc/user1.png",
+        "time": "3/10/2024, 12:29:14 AM"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "email": "bc@gmail.com",
         "position": "Theoretical physicist, cosmologist, author",
         "desc": "Renowned physicist who made significant contributions to our understanding of black holes and cosmology. Popularized science through his book 'A Brief History of Time.'",
-        "img": "https://i.ibb.co/sPkpqcC/user2.png"
+        "img": "https://i.ibb.co/sPkpqcC/user2.png",
+        "time": "6/15/2024, 10:18:42 PM"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "email": "cd@gmail.com",
         "position": "Polymath: painter, sculptor, architect, musician, scientist, engineer, inventor, anatomist, geologist, cartographer, botanist, and writer",
         "desc": "Renaissance polymath famous for his paintings, inventions, and anatomical drawings. Created iconic works like the Mona Lisa and The Last Supper.",
-        "img": "https://i.ibb.co/6nz2gWN/user3.png"
+        "img": "https://i.ibb.co/6nz2gWN/user3.png",
+        "time": "1/25/2024, 2:32:59 PM"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "email": "ab@gmail.com",
         "position": "Theoretical physicist",
         "desc": "Developed the theory of relativity, one of the two pillars of modern physics (alongside quantum mechanics). Famous for the mass–energy equivalence formula E = mc².",
-        "img": "https://i.ibb.co/fHgjLjc/user1.png"
+        "img": "https://i.ibb.co/fHgjLjc/user1.png",
+        "time": "3/5/2024, 11:57:37 AM"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "email": "cd@gmail.com",
         "position": "Anti-apartheid revolutionary, political leader, philanthropist",
         "desc": "Fought against racial segregation in South Africa. Became the country's first black head of state and promoted racial reconciliation. Nobel Peace Prize laureate.",
-        "img": "https://i.ibb.co/6nz2gWN/user3.png"
+        "img": "https://i.ibb.co/6nz2gWN/user3.png",
+        "time": "4/13/2024, 7:53:29 PM"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "email": "bc@gmail.com",
         "position": "Playwright, poet, actor",
         "desc": "Renowned English playwright, poet, and actor. Considered the greatest writer in the English language and the world's greatest dramatist. Wrote iconic plays like Hamlet, Romeo and Juliet, and Macbeth.",
-        "img": "https://i.ibb.co/sPkpqcC/user2.png"
+        "img": "https://i.ibb.co/sPkpqcC/user2.png",
+        "time": "7/17/2024, 8:37:19 PM"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "email": "bc@gmail.com",
         "position": "Talk show host, actress, producer, philanthropist",
         "desc": "Media proprietor, actress, producer, and philanthropist. Best known for her talk show The Oprah Winfrey Show, which was the highest-rated television program of its kind in history and was nationally syndicated for 25 years from 1986 to 2011.",
-        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg",
+        "time": "7/23/2024, 10:29:31 AM"
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "email": "ef@gmail.com",
         "position": "Philosopher",
         "desc": "Influential Greek philosopher known for his theory of Forms and student of Socrates. His writings laid the foundation of Western philosophy.",
-        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg",
+        "time": "2/29/2024, 2:29:39 PM"
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "email": "ef@gmail.com",
         "position": "Activist for female education",
         "desc": "Youngest Nobel Prize laureate. Activist for female education who survived an assassination attempt by the Taliban. Advocate for girls' education globally.",
-        "img": "https://i.ibb.co/Rp1D414/coffee.jpg"
+        "img": "https://i.ibb.co/Rp1D414/coffee.jpg",
+        "time": "2/4/2024, 10:39:26 AM"
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "email": "ab@gmail.com",
         "position": "Composer",
         "desc": "German composer widely regarded as one of the greatest composers in history. Overcame deafness to compose influential works like Symphony No. 5 and Für Elise.",
-        "img": "https://i.ibb.co/fHgjLjc/user1.png"
+        "img": "https://i.ibb.co/fHgjLjc/user1.png",
+        "time": "4/23/2024, 2:48:49 PM"
     }
 ]
 

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Post from '../../components/Post';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -17,6 +18,24 @@ const Profile = () => {
                 setMyPost(ownData);
             })
     }, [])
+    // .............................................
+
+
+    const handleDelete = _id => {
+        fetch(`http://localhost:5000/posts/${_id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.deletedCount > 0) {
+                    alert("Delete Successfully");
+                }
+            })
+    }
+
+
+
 
 
     return (
@@ -60,17 +79,18 @@ const Profile = () => {
             <div className='w-2/3 mx-auto'>
                 <h3 className='text-3xl font-bold my-3'>Your All Post: {myPost.length}</h3>
 
-                    {
-                        myPost.map(post =>
-                            <div key={post.id}>
-                                <div className="card bg-base-100 w-full shadow-xl my-5">
-                                    <div className="card-body">
-                                        <p>{post.desc}</p>
-                                    </div>
+                {
+                    myPost.map(post =>
+                        <div key={post.id}>
+                            <div className="card bg-base-100 w-full shadow-xl my-5 border-l-4 border-indigo-500">
+                                <div className="card-body ">
+                                    <p>{post.desc}</p>
                                 </div>
-                            </div>)
-                    }
+                            </div>
+                        </div>)
+                }
             </div>
+
         </div>
 
     );

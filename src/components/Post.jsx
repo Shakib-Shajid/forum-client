@@ -13,7 +13,8 @@ const Post = () => {
         const name = user.displayName;
         const email = user.email;
         const img = user.photoURL;
-        const getData = { desc, name, email, img }
+        const time = myDate.format(new Date());
+        const getData = { desc, name, email, img, time }
         // console.log(getData);
 
         fetch('http://localhost:5000/posts', {
@@ -31,6 +32,21 @@ const Post = () => {
             }
         })
     }
+
+    let options = {
+        timeZone: 'Asia/Dhaka',
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      },
+      myDate = new Intl.DateTimeFormat([], options);
+    
+    // setInterval(() => {
+    //   console.log(myDate.format(new Date()));
+    // }, 10000);
 
 
 
