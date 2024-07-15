@@ -3,48 +3,58 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const PeopleProfile = () => {
 
-    // .......................................
 
-const [user, setUser] = useState([]);
 
-const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
-// console.log(urlId);
+    // ..............Find URL number...............
 
-useEffect(()=>{
-fetch('http://localhost:5000/posts')
-  .then(res => res.json())
-  .then(data => {
-    const foundUser = data.find(item => item._id === urlId);
-    setUser(foundUser);
+    const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
     // console.log(urlId);
-  });
 
-
-}, []);
-
-    // ..........Show all data.................
-
-
-    const [posts, setPosts] = useState([]);
+    const [user, setUser] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/posts')
             .then(res => res.json())
-            .then(data => setPosts(data))
-    }, [])
+            .then(data => {
+                const foundUser = data.find(item => item._id === urlId);            //1,2,3
+                setUser(foundUser);
+                // console.log(foundUser);
+            });
 
-    // .......................................
+    }, [urlId]);
 
-
-const { loading } = useContext(AuthContext)
-
-if (loading) {
-     return <div><span className="loading loading-ball loading-xs"></span>
-         <span className="loading loading-ball loading-sm"></span>
-         <span className="loading loading-ball loading-md"></span>
-         <span className="loading loading-ball loading-lg"></span></div>
- }
+    // user = I check whom profile.
 
 
+
+    // ..................Fetch all data........................
+
+
+
+    const [allPost, setAllPost] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/posts')
+            .then(res => res.json())
+            .then(data => {
+                setAllPost(data)
+            }
+            );
+    }, []);
+
+
+    // ...............................................
+
+
+    const { loading } = useContext(AuthContext)
+
+    if (loading) {
+        return <div><span className="loading loading-ball loading-xs"></span>
+            <span className="loading loading-ball loading-sm"></span>
+            <span className="loading loading-ball loading-md"></span>
+            <span className="loading loading-ball loading-lg"></span></div>
+    }
+
+    console.log(user.email);
 
     return (
         <div className="flex gap-5 flex-col md:flex-row">
@@ -64,7 +74,6 @@ if (loading) {
                                 New York, NY
                             </div>
                         </div>
-                        <p>Total Posts: {posts.length}</p>
                     </div>
 
                     <div className="flex gap-2 px-2">
@@ -80,15 +89,31 @@ if (loading) {
                 </div>
             </div>
 
-            <div>
-                <p className="text-lg font-bold">Total Post: {posts.length}</p>
-                {
-                    posts.map(post =>
-                        <div key={post.id} className="border-b-8 border-r-8 my-5 w-full lg:w-2/3 shadow-lg p-4 ">
-                            <h3 className="text-lg font-bold">{post.name}</h3>
-                            <p >{post.desc}</p>
-                        </div>)
-                }
+
+            <div className='w-2/3 mx-auto'>
+                <h3 className='text-3xl font-bold my-3'>Your All Post: {user.length}</h3>
+                <p>User Email: {user.email}</p>
+                <p>All posts email: {
+
+                    allPost.map(post => <p key={post._id}>
+                        {
+                            post.email === user.email ? <p>
+                                <div className="card bg-base-100 w-full shadow-xl my-5">
+                                    <div className="card-body">
+                                        <p>{post.desc}</p>
+                                        <p>{post.email}</p>
+                                        <p>{user.email}</p>
+                                    </div>
+                                </div>
+                            </p> : ""
+                        }
+                    </p>)
+
+
+
+                }</p>
+
+
             </div>
 
         </div>
@@ -96,3 +121,15 @@ if (loading) {
 };
 
 export default PeopleProfile;
+
+
+
+{/* <div key={post.id}>
+
+    <div className="card bg-base-100 w-full shadow-xl my-5">
+        <div className="card-body">
+            <p>{post.desc}</p>
+        </div>
+    </div>
+
+</div> */}
