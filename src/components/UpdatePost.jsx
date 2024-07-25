@@ -43,7 +43,6 @@ const UpdatePost = () => {
                 <h3 className='text-center text-3xl font-bold my-5'>Update Post</h3>
                 <textarea className="textarea textarea-bordered textarea-lg w-full h-auto" name="desc" defaultValue={post.desc}></textarea>
                 <button className="btn btn-success w-full text-white">Update Post</button>
-
             </form>
         </div>
     );
