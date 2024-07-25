@@ -1,26 +1,38 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useParams } from "react-router-dom";
 
 const PeopleProfile = () => {
 
-
-
     // ..............Find URL number...............
 
-    const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
+    // const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
+    const params = useParams();
+
     // console.log(urlId);
 
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/posts')
+        fetch(`http://localhost:5000/posts/${params.id}`)
             .then(res => res.json())
             .then(data => {
-                const foundUser = data.find(item => item._id === urlId);            //1,2,3
-                setUser(foundUser);
-                // console.log(foundUser);
+                // const foundUser = data.find(item => item._id === urlId);            //1,2,3
+                setUser(data);
+                console.log("foundUser", data);
             });
 
-    }, [urlId]);
+    }, []);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/posts')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             const foundUser = data.find(item => item._id === urlId);            //1,2,3
+    //             setUser(foundUser);
+    //             console.log("foundUser", foundUser);
+    //         });
+
+    // }, [urlId]);
 
     // user = I check whom profile.
 
@@ -75,15 +87,9 @@ const PeopleProfile = () => {
     },
         myDate = new Intl.DateTimeFormat([], options);
 
-    setInterval(() => {
-        console.log(myDate.format(new Date()));
-    }, 10000);
-
-
-
-
-
-
+    // setInterval(() => {
+    //     console.log(myDate.format(new Date()));
+    // }, 10000);
 
 
     // .................................................................................
@@ -97,12 +103,7 @@ const PeopleProfile = () => {
                         <div className="py-2">
                             <h3 className="font-bold text-2xl text-gray-800 dark:text-white mb-1">{user.name}</h3>
                             <div className="inline-flex text-gray-700 dark:text-gray-300 items-center">
-                                <svg className="h-5 w-5 text-gray-400 dark:text-gray-600 mr-1" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path className=""
-                                        d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                                </svg>
-                                New York, NY
+                            {user.position}
                             </div>
                         </div>
                     </div>
@@ -118,11 +119,12 @@ const PeopleProfile = () => {
                         </button>
                     </div>
                 </div>
+                
             </div>
 
 
             <div className='w-2/3 mx-auto'>
-                <h3 className='text-3xl font-bold my-3'>{user.name} All Post: </h3>
+                <h3 className='text-3xl font-bold my-3'>{user.name} All Posts: </h3>
                 {
 
                     allPost.map(post => <p key={post._id}>
