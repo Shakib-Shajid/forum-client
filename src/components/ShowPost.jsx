@@ -79,9 +79,9 @@ const Banner = ({ post }) => {
 
 
     return (
-        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center ">
+        <div className="border-2 pl-2 md:pl-5 border-dashed relative border-gray-500 shadow-lg rounded-lg flex items-center w-80 md:w-full ">
             <img src={img} className="h-20 w-20 rounded-full border-2 border-blue-500 p-2" alt="" />
-            <div className="card-body">
+            <div className="card-body w-52 lg:w-full">
                 <h2 className="card-title"><Link to={`/peopleprofile/${_id}`}>{name}</Link></h2>
                 <p>{desc}</p>
                 {user &&
@@ -108,15 +108,15 @@ const Banner = ({ post }) => {
                     : ""
                 }
 
-                <form onSubmit={comment}>
-                    <input className=" w-full border-2 text-black" name="comment" />
-                    <button className="btn btn-success w-full text-white">Comment</button>
+                <form onSubmit={comment} className="flex gap-2 flex-col lg:flex-row">
+                    <input className="lg:w-2/3  border-2 text-black rounded-xl p-2" placeholder="comment here" name="comment" />
+                    <button className="btn btn-info text-black">Comment</button>
                 </form>
 
 
-                <div className="dropdown dropdown-bottom">
-                    <div tabIndex={0} role="button" className="btn m-1" onClick={() => { handleComment(post._id) }}>Show Comment</div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-64 p-2 shadow">
+                <div className="dropdown dropdown-top dropdown-end absolute bottom-0 right-0">
+                    <div tabIndex={0} role="button" className="btn-xs" onClick={() => { handleComment(post._id) }}>Show Comment</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         {
                             comments.map(comment =>
                                 comment.id === number ?
