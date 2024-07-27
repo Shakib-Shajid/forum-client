@@ -3,6 +3,8 @@ import ShowPost from "../../components/ShowPost";
 import Post from "../../components/Post";
 import { AuthContext } from "../../providers/AuthProvider";
 
+import { useLoaderData } from "react-router-dom";
+
 const Home = () => {
 
     const { user, loading } = useContext(AuthContext)
@@ -13,7 +15,6 @@ const Home = () => {
         .then(res=>res.json())
         .then(data=>setPosts(data))
     },[])
-
 
     
     if (loading) {

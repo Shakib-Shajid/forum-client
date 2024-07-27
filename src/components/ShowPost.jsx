@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
+
 const Banner = ({ post }) => {
 
     const { user, loading } = useContext(AuthContext);
@@ -47,9 +48,19 @@ const Banner = ({ post }) => {
                 }
             })
     }
-    
 
-    
+
+    // 
+    const [number, setNumber] = useState(0)
+
+    const handleComment = _id => {
+        const number = post._id;
+        setNumber(number);
+        // document.getElementById('my_modal_2').showModal();
+
+        console.log(number);
+    }
+
 
     // comment fetch
     const [comments, setComments] = useState([]);
@@ -57,20 +68,14 @@ const Banner = ({ post }) => {
         fetch('http://localhost:5000/comment')
             .then(res => res.json())
             .then(data => {
-                const found = data.find(comment => comment.id === _id)
-                if(loading){
-                    setComments(found)
-                    return <div>Loading..............................</div>
-                    
-                }
-                
-                // console.log(found);
+                // if(loading){
+                setComments(data)
+                // return <div>Loading..............................</div>   
+                // }
             })
     }, [])
 
-    
 
-   
 
 
     return (
@@ -102,49 +107,40 @@ const Banner = ({ post }) => {
                     </div>
                     : ""
                 }
-                {/* <div> */}
-                {/* <form onSubmit={comment}>
-                        <input type="text" name="comment" className="p-2 border-blue-600 border-2 rounded-lg w-2/3" placeholder="write a comment here" />
-                        <input type="submit" className="btn btn-info" value="Comment" />
-                    </form> */}
+
                 <form onSubmit={comment}>
-                    <input className=" w-full border-2" name="comment" />
+                    <input className=" w-full border-2 text-black" name="comment" />
                     <button className="btn btn-success w-full text-white">Comment</button>
                 </form>
-                {/* </div> */}
 
-                {/* The button to open modal */}
-                <label htmlFor="my_modal_7" className="absolute bottom-0 right-0 btn-xs btn">Comment: 3</label>
 
-                {/* Put this part before </body> tag */}
-                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-                <div className="modal" role="dialog">
-                    <div className="modal-box">
-                        <div className="">
-                            {
-                                comments.map(comment =>
-                                    <div key={comment._id} className="flex gap-3">
-                                        <img src={comment.photo} className="h-10 w-10 rounded-full border-2 border-blue-500 p-2" alt="" />
-                                        <div className="text-sm">
-                                            <h2 className="card-title"><Link to={`/peopleprofile/${_id}`}>{comment.name}</Link></h2>
-                                            <p>{comment.comment}</p>
+                <div className="dropdown dropdown-bottom">
+                    <div tabIndex={0} role="button" className="btn m-1" onClick={() => { handleComment(post._id) }}>Show Comment</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-64 p-2 shadow">
+                        {
+                            comments.map(comment =>
+                                comment.id === number ?
+                                    <div key={comment._id}>
+                                        <div className="flex my-3 gap-3">
+                                            <img src={comment.photo} alt="" className="h-10 w-10 border-2 border-blue-600 rounded-full" />
+                                            <div>
+                                                <p>{comment.name}</p>
+                                                <p>{comment.comment}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            }
+                                    </div> : ''
 
-                        </div>
-
-                    </div>
-                    <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+                            )
+                        }
+                    </ul>
                 </div>
 
             </div>
-
-
 
         </div>
     );
 };
 
 export default Banner;
+
+
