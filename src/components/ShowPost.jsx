@@ -107,33 +107,38 @@ const Banner = ({ post }) => {
                     </div>
                     : ""
                 }
+                {
+                    user &&
+                    <form onSubmit={comment} className="flex gap-2 flex-col lg:flex-row">
+                        <input className="lg:w-2/3  border-2 text-black rounded-xl p-2" placeholder="comment here" name="comment" />
+                        <button className="btn btn-info text-black">Comment</button>
+                    </form>
+                }
 
-                <form onSubmit={comment} className="flex gap-2 flex-col lg:flex-row">
-                    <input className="lg:w-2/3  border-2 text-black rounded-xl p-2" placeholder="comment here" name="comment" />
-                    <button className="btn btn-info text-black">Comment</button>
-                </form>
-
-
-                <div className="dropdown dropdown-top dropdown-end absolute bottom-0 right-0">
-                    <div tabIndex={0} role="button" className="btn-xs" onClick={() => { handleComment(post._id) }}>Show Comment</div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        {
-                            comments.map(comment =>
-                                comment.id === number ?
-                                    <div key={comment._id}>
-                                        <div className="flex my-3 gap-3">
-                                            <img src={comment.photo} alt="" className="h-10 w-10 border-2 border-blue-600 rounded-full" />
-                                            <div>
-                                                <p>{comment.name}</p>
-                                                <p>{comment.comment}</p>
+                {
+                    user &&
+                    <div className="dropdown dropdown-top dropdown-end absolute bottom-0 right-0">
+                        <div tabIndex={0} role="button" className="btn-xs" onClick={() => { handleComment(post._id) }}>Show Comment</div>
+                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            {
+                                comments.map(comment =>
+                                    comment.id === number ?
+                                        <div key={comment._id}>
+                                            <div className="flex my-3 gap-3">
+                                                <img src={comment.photo} alt="" className="h-10 w-10 border-2 border-blue-600 rounded-full" />
+                                                <div>
+                                                    <p>{comment.name}</p>
+                                                    <p>{comment.comment}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div> : ''
+                                        </div> : ''
 
-                            )
-                        }
-                    </ul>
-                </div>
+                                )
+                            }
+                        </ul>
+                    </div>
+                }
+
 
             </div>
 
