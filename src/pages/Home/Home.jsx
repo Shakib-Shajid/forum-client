@@ -9,14 +9,22 @@ const Home = () => {
 
     const { user, loading } = useContext(AuthContext)
 
-    const [posts, setPosts] = useState([])
-    useEffect(()=>{
-        fetch('http://localhost:5000/posts')
-        .then(res=>res.json())
-        .then(data=>setPosts(data))
-    },[])
 
-    
+    // const [posts, setPosts] = useState([])
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/posts')
+    //     .then(res=>res.json())
+    //     .then(data=>setPosts(data))
+    // },[])
+
+    const posts = useLoaderData();
+
+    // ..............................................
+    const [postShows, setPostShows] = useState(posts);
+    // console.log("PostShows", postShows);
+    // ..............................................
+
+
     if (loading) {
         return <div><span className="loading loading-ball loading-xs"></span>
             <span className="loading loading-ball loading-sm"></span>
@@ -30,8 +38,11 @@ const Home = () => {
             }
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
-                    posts.map(post =>
-                        <ShowPost key={post.id} post={post} 
+                   posts.map(post =>
+                        <ShowPost key={post._id} post={post}
+                            // ....................
+                            postShows={postShows} setPostShows={setPostShows}
+                        // ....................
                         />)
                 }
             </div>

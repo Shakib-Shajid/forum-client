@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 
-const Banner = ({ post }) => {
+const Banner = ({ post, postShows, setPostShows }) => {
 
     const { user, loading } = useContext(AuthContext);
 
@@ -16,10 +16,12 @@ const Banner = ({ post }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
-                if (data.deletedCount > 0) {
-                    alert("Delete Successfully");
-                }
+                console.log(data)
+                // if (data.deletedCount > 0) {
+                const remaining = postShows.filter(postShow => postShow._id !== _id)
+                setPostShows(remaining);
+                // alert("Delete Successfully");
+                // }
             })
     }
 

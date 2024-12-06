@@ -1,42 +1,32 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const PeopleProfile = () => {
 
-    // ..............Find URL number...............
-
-    // const urlId = (window.location.pathname.split('/')[2]); // Extract ID from URL
     const params = useParams();
 
     // console.log(urlId);
 
     const [user, setUser] = useState([]);
+
     useEffect(() => {
         fetch(`http://localhost:5000/posts/${params.id}`)
             .then(res => res.json())
             .then(data => {
-                // const foundUser = data.find(item => item._id === urlId);            //1,2,3
                 setUser(data);
-                console.log("foundUser", data);
+                // console.log("foundUser", data);
             });
 
     }, []);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/posts')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             const foundUser = data.find(item => item._id === urlId);            //1,2,3
-    //             setUser(foundUser);
-    //             console.log("foundUser", foundUser);
-    //         });
+    // const url = `http://localhost:5000/posts/${params.id}`
 
-    // }, [urlId]);
-
-    // user = I check whom profile.
-
-
+    // axios.get(url, { withCredentials: true })
+    //     .then(res => {
+    //         setUser(res.data)
+    //     })
 
     // ..................Fetch all data........................
 
@@ -103,23 +93,23 @@ const PeopleProfile = () => {
                         <div className="py-2">
                             <h3 className="font-bold text-2xl text-gray-800 dark:text-white mb-1">{user.name}</h3>
                             <div className="inline-flex text-gray-700 dark:text-gray-300 items-center">
-                            {user.position}
+                                {user.position}
                             </div>
                         </div>
                     </div>
 
-                    {/* <div className="flex gap-2 px-2">
+                    <div className="flex gap-2 px-2">
                         <button
                             className="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white dark:text-white antialiased font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2">
                             Follow
                         </button>
                         <button
-                            className="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2">
+                            className="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2 text-center">
                             Message
                         </button>
-                    </div> */}
+                    </div>
                 </div>
-                
+
             </div>
 
 

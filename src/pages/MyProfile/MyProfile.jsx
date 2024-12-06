@@ -32,8 +32,9 @@ const Profile = () => {
                     alert("Delete Successfully");
                 }
             })
-        // console.log(_id, "delete");
     }
+
+
 
     return (
         <div >
@@ -83,12 +84,7 @@ const Profile = () => {
                             <div className="card bg-base-100 w-full shadow-xl my-5 border-l-4 border-indigo-500">
                                 <div className="card-body ">
                                     <p>{post.desc}</p>
-                                    {/* <div className='flex gap-3 w-2/5 lg:w-1/5'>
-                                        <p onClick={() => handleDelete(post._id)} className="btn-xs lg:btn lg:btn-neutral  lg:text-white text-black">Delete Post</p>
-                                        <Link to={`/updatePost/${post._id}`} className=" btn-xs lg:btn lg:btn-neutral text-black lg:text-white">Update Post</Link>
-
-                                    </div> */}
-
+                                  
                                     <div className="dropdown dropdown-bottom dropdown-end absolute top-0 right-0 mx-2">
                                         <div tabIndex={0} role="button" className="">
                                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
@@ -108,7 +104,6 @@ const Profile = () => {
                                         </ul>
 
                                     </div>
-
 
                                 </div>
                             </div>
